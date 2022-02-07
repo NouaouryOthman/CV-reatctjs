@@ -1,0 +1,16 @@
+.list {
+    display: flex;
+    list-style-type: none;
+    column-gap: 2rem;
+}
+
+.list button {
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+}

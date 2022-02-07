@@ -1,0 +1,6 @@
+@import-normalize;
+
+* {
+  max-width: 800px;
+  margin: auto;
+}
