@@ -1,5 +1,5 @@
 import styles from './Resume.module.css';
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import webDev from '../resources/web_dev.jpg';
 import js from '../resources/js.png';
 import java from '../resources/java.png';
@@ -8,6 +8,7 @@ import nodejs from '../resources/nodejs.png';
 import angular from '../resources/angular.png';
 import sqlserver from '../resources/sqlserver.png';
 import mysql from '../resources/mysql.png';
+import moncv from '../resources/moncv.pdf';
 
 export default function Resume() {
     return <div>
@@ -28,6 +29,7 @@ export default function Resume() {
                          <img src={nodejs} width="80" height="60"/><>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;</>
                          <img src={angular} width="60" height="60" />
                     </Card.Body>
+                    <Button variant="primary"><a href={moncv} download="CV_Mohammed_Amine_Faris">Télécharger mon CV!</a></Button>
                 </Card.ImgOverlay>
             </Card>
             <p className={styles.head}>Mes intérêts :</p>
