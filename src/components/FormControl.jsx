@@ -5,6 +5,7 @@ import styles from './Form.module.css';
 
 export default function FormControl() {
     const [courrielValeur, setCourrielValeur] = useState('');
+    const [mailValeur, setMailValeur] = useState('');
     const [courrielTouched, setCourrielTouched] = useState(false);
     const handleCourrielChange = (event) => {
         setCourrielValeur(event.currentTarget.value);
@@ -15,6 +16,7 @@ export default function FormControl() {
 
         if (courrielValeur !== '' && emailValidator.validate(courrielValeur)) {
             console.log(courrielValeur);
+            console.log(mailValeur);
             setCourrielValeur('');
             setCourrielTouched(false);
         }
@@ -22,7 +24,7 @@ export default function FormControl() {
 
     return <form noValidate className={styles.form} onSubmit={handleSubmit}>
         <label>
-            Adresse courriel: 
+            Adresse courriel:
             <input type="email" value={courrielValeur} onChange={handleCourrielChange} />
         </label>
         {courrielTouched && courrielValeur === '' &&
@@ -35,6 +37,10 @@ export default function FormControl() {
                 L'adresse courriel n'est pas valide.
             </div>
         }
+        <label>
+            <input type="text" value={mailValeur} onChange={handleCourrielChange} />
+        </label>
+
 
 
         <input type="submit" />
