@@ -4,9 +4,16 @@ import styles from '../components/Gallerie.module.css';
 import projet2 from '../resources/projet2.zip';
 import capture1 from '../resources/projet2_capture1.png';
 import angular from '../resources/angular.png';
+import {Helmet} from 'react-helmet-async';
 
 export default function Projet2() {
     return <div>
+        <Helmet>
+            <title>
+                {'Mon deuxième projet'} 
+            </title>
+            <meta name="projet2" content="Page de présentation de mon deuxième projet" />
+        </Helmet>
         <h2>Projet : Plateforme des jeux vidéos</h2>
         <a href={projet2} className="btn center" download="projet2.zip">Télécharger le projet!</a>
         <ContentToggler title="Description du projet" >

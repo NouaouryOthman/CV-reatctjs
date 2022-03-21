@@ -1,36 +1,27 @@
-import Header from './components/Header';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
+import { StrictMode, lazy } from 'react';
+import  Layout  from './pages/Layout';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Accueil from './pages/Accueil';
-import Projet1 from './pages/Projet1';
-import Projet2 from './pages/Projet2';
-import { useState } from 'react';
-
 import './App.css';
 
+const Accueil = lazy(() => import('./pages/Accueil'));
+const Projet1 = lazy(() => import('./pages/Projet1'));
+const Projet2 = lazy(() => import('./pages/Projet2'));
+const Contact = lazy(() => import('./pages/Contact'));
 export default function App() {
-    const [pageCourante, setPageCourante] = useState('accueil');
-
-    const changePage = (page) => {
-        return () => {
-            setPageCourante(page);
-        }
-    }
-
-    return <>
-        <Header changePage={changePage} />
-
-        {pageCourante === 'accueil' &&
-            <Accueil />
-        }
-        
-        {pageCourante === 'projet1' &&
-            <Projet1 />
-        }
-        
-        {pageCourante === 'projet2' &&
-            <Projet2 />
-        }
-
-        {/*footer*/}
-    </>
+    return <StrictMode>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
+            <HelmetProvider>
+                <Routes>
+                    <Route path="/" element={<Layout />}>
+                        <Route index element={<Accueil />} />
+                        <Route path="projet1" element={<Projet1 />} />
+                        <Route path="projet2" element={<Projet2 />} />
+                        <Route path="contact" element={<Contact />} />
+                    </Route>
+                </Routes>
+            </HelmetProvider>
+        </BrowserRouter>
+    </StrictMode>
 }
